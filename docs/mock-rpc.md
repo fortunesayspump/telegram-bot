@@ -55,16 +55,16 @@ Use these `MockValue` forms in `topics` and `fields`:
 | TypeScript value | Soroban value |
 | --- | --- |
 | `string` | string |
-| safe-integer `number` | `u64` |
+| non-negative safe-integer `number` | `u64` |
 | `bigint` | `i128` |
 | `{ address: string }` | address |
 | `{ bytes: string }` | bytes decoded from the hex string |
 | `{ symbol: string }` | symbol |
 
 Use a TypeScript object rather than JSON for scenarios that contain `bigint`;
-JSON cannot serialize values such as `20_000_000n`. A `number` must satisfy
-`Number.isSafeInteger`, while a `bigint` is the appropriate representation for
-signed amounts encoded as `i128`.
+JSON cannot serialize values such as `20_000_000n`. A `number` must be
+non-negative and satisfy `Number.isSafeInteger`, while a `bigint` is the
+appropriate representation for signed amounts encoded as `i128`.
 
 ### Complete example
 
